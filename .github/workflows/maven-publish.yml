@@ -25,7 +25,6 @@ jobs:
       run: mvn clean verify
 
     - name: Publish to GitHub Packages Apache Maven
-      if: github.event_name == 'release' && github.event.action == 'created'
       run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
